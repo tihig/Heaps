@@ -1,5 +1,4 @@
 
-
 import Heaps.Binary;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -9,8 +8,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BinaryTest {
+// TiRan testeistä aikatesteille mallia (joku stopwatch etc...)
 
-   private int[] heap = {1,2,3};
+   private int[] heap = {1, 2, 3, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
    private Binary bin;
    private Binary hf;
 
@@ -27,9 +27,9 @@ public class BinaryTest {
 
    @Before
    public void setUp() {
-      this.bin = new Binary(heap);
-      int[] h = {2,1,3};
-      this.hf = new Binary(h);
+      this.bin = new Binary(heap, 2);
+      int[] h = {2, 1, 3};
+      this.hf = new Binary(h, 2);
    }
 
    @After
@@ -40,18 +40,23 @@ public class BinaryTest {
    public void getMinTest() {
       assertEquals(bin.getMin(), 1);
    }
+
+   @Test
+   public void HeapifyTest() {
+      hf.heapify(0);
+      assertEquals(hf.getMin(), 1);
+   }
+
+   @Test
+   public void del_min_Test() {
+      bin.del_min();
+      assertEquals(bin.getMin(), 2);
+   }
    
    @Test
-   public void HeapifyTest(){
-     hf.heapify(0);
-     boolean t= true;
-     int[] th = hf.getHeap();
-      for (int i : heap) {
-         if(heap[i] != th[i]){
-            t = false;
-            break;
-         }
-      }
-      assertTrue(t);
+   public void decrease_key_Test(){
+      Binary dec = new Binary(new int[]{1,3,4,5}, 4);
+      dec.decrease_key(3, 2);
+      assertEquals(dec.getKey(1), 2);
    }
 }
