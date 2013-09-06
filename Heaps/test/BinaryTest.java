@@ -52,11 +52,21 @@ public class BinaryTest {
       bin.del_min();
       assertEquals(bin.getMin(), 2);
    }
-   
+
    @Test
-   public void decrease_key_Test(){
-      Binary dec = new Binary(new int[]{1,3,4,5}, 4);
+   public void decrease_key_Test() {
+      Binary dec = new Binary(new int[]{1, 3, 4, 5}, 4);
       dec.decrease_key(3, 2);
       assertEquals(dec.getKey(1), 2);
+   }
+
+   @Test
+   public void capasityTest() {
+      Binary full = new Binary(new int[]{1, 2}, 1);
+
+      full.checkCapasity();
+      int[] new_full = full.getHeap();
+      assertEquals(new_full.length, 3);
+
    }
 }

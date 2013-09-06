@@ -89,7 +89,7 @@ public class Binary {
       }
       int new_size = heap.length + (heap.length / 2);
       int[] new_heap = new int[new_size];
-      System.arraycopy(heap, 0, new_heap, 0, new_size);
+      System.arraycopy(heap, 0, new_heap, 0, heap.length);
       heap = new_heap;
       return heap.length == new_size;
    }
