@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="viivi-1215B-1215B" name="FibonacciTest" tests="1" time="0.263" timestamp="2013-09-11T18:06:38">
+<testsuite errors="0" failures="3" hostname="viivi-1215B-1215B" name="HeapControlTest" tests="3" time="0.281" timestamp="2013-09-11T18:06:40">
   <properties>
     <property name="netbeans.autoupdate.country" value="FI" />
     <property name="nb.wait.for.caches" value="true" />
@@ -42,7 +42,7 @@
     <property name="ant.file.Heaps-impl" value="/home/viivi/ssh/Heaps/nbproject/build-impl.xml" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner FibonacciTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/viivi/ssh/Heaps/build/test/results/TEST-FibonacciTest.xml crashfile=/home/viivi/ssh/Heaps/build/junitvmwatcher5666973619652062162.properties propsfile=/home/viivi/ssh/Heaps/build/junit3488550752123148035.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner HeapControlTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/viivi/ssh/Heaps/build/test/results/TEST-HeapControlTest.xml crashfile=/home/viivi/ssh/Heaps/build/junitvmwatcher302905040428850797.properties propsfile=/home/viivi/ssh/Heaps/build/junit5898415711704122801.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -298,7 +298,21 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
   </properties>
-  <testcase classname="FibonacciTest" name="insertTest" time="0.007" />
+  <testcase classname="HeapControlTest" name="buildHeapTest1" time="0.03">
+    <failure message="expected:&lt;0&gt; but was:&lt;1&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;0&gt; but was:&lt;1&gt;
+	at HeapControlTest.buildHeapTest1(HeapControlTest.java:41)
+</failure>
+  </testcase>
+  <testcase classname="HeapControlTest" name="buildHeapTest2" time="0.01">
+    <failure message="expected:&lt;null&gt; but was:&lt;2&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;null&gt; but was:&lt;2&gt;
+	at HeapControlTest.buildHeapTest2(HeapControlTest.java:46)
+</failure>
+  </testcase>
+  <testcase classname="HeapControlTest" name="buildHeapTest3" time="0.008">
+    <failure message="expected:&lt;null&gt; but was:&lt;3&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;null&gt; but was:&lt;3&gt;
+	at HeapControlTest.buildHeapTest3(HeapControlTest.java:51)
+</failure>
+  </testcase>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

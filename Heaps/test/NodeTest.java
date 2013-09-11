@@ -10,26 +10,28 @@ import static org.junit.Assert.*;
 
 
 public class NodeTest {
-   private Node n;
+   private Node n1;
    private Node f;
    private Node left;
    private Node right;
    
    public NodeTest() {
-      this.n = new Node(null,null,5);
-      this.f = new Node(null,null,0);
-      this.left = new Node(null,null,8);
-      this.right = new Node(null,null,3);
+     this.n1 = new Node(new Node(null,null,n1,1,4),new Node(null,null,n1,1,5),null,1,2);
    }
    @Before
    public void Before(){
-      n.setLeft(left);
-      n.setRight(right);  
+      n1.setLeft(left);
+      
    }
   
     @Test
    public void nodeKeyTest(){
-       assertEquals(n.getKey(), 5);
+       assertEquals(n1.getKey(), 2);
+    }
+  
+    @Test
+    public void getChild(){
+       
     }
     
 }

@@ -69,4 +69,11 @@ public class BinaryTest {
       assertEquals(new_full.length, 3);
 
    }
+   @Test
+   public void insertTest(){
+      bin.insert(4);
+      assertEquals(4,bin.getHeap()[3]);
+   }
+
+  
 }

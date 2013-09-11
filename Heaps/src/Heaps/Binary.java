@@ -6,8 +6,6 @@ public class Binary {
    private int heap_size;
 
    public Binary(int[] heap, int heap_size) {
-      // dynaaminen taulukko!!!
-      // jos aikaa, tee linkitetylle rakeneelle sama koodi
       this.heap = heap;
       this.heap_size = heap_size;
 

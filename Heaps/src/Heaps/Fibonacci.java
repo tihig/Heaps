@@ -7,10 +7,12 @@ public class Fibonacci {
    
    private Node n;
    private int min;
+   private int d;
    
    public Fibonacci(Node n){
       this.n = n;
       this.min = n.getKey();
+      this.d= 0;
    }
 
    public Node getN() {
@@ -27,7 +29,15 @@ public class Fibonacci {
    public void delete_min(){
       
    }
-   public void insert(int k){
+   public void insert(Node k){
+      if(min > k.getKey()){
+         k.setChild(n);
+         n.setP(k);
+         n = k;
+      }else{
+         n.setLeft(k);
+         k.setRight(n);
+      }
       
    }
    public void merge(){

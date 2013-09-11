@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="viivi-1215B-1215B" name="BinaryTest" tests="5" time="0.266" timestamp="2013-09-06T07:46:43">
+<testsuite errors="0" failures="0" hostname="viivi-1215B-1215B" name="BinaryTest" tests="6" time="0.246" timestamp="2013-09-11T18:06:35">
   <properties>
     <property name="netbeans.autoupdate.country" value="FI" />
     <property name="nb.wait.for.caches" value="true" />
@@ -42,7 +42,7 @@
     <property name="ant.file.Heaps-impl" value="/home/viivi/ssh/Heaps/nbproject/build-impl.xml" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner BinaryTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/viivi/ssh/Heaps/build/test/results/TEST-BinaryTest.xml crashfile=/home/viivi/ssh/Heaps/build/junitvmwatcher1000058214241953016.properties propsfile=/home/viivi/ssh/Heaps/build/junit7680110771568582862.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner BinaryTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/viivi/ssh/Heaps/build/test/results/TEST-BinaryTest.xml crashfile=/home/viivi/ssh/Heaps/build/junitvmwatcher3319106932076722894.properties propsfile=/home/viivi/ssh/Heaps/build/junit5319085686698286062.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -267,7 +267,7 @@
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="/home/viivi/netbeans-7.3/java/modules/ext/eclipselink/javax.persistence_2.1.0.v201304241213.jar" />
-    <property name="os.version" value="3.2.0-52-generic" />
+    <property name="os.version" value="3.2.0-53-generic" />
     <property name="application.args" value="" />
     <property name="sun.awt.enableExtraMouseButtons" value="true" />
     <property name="main.class.available" value="true" />
@@ -300,9 +300,10 @@
   </properties>
   <testcase classname="BinaryTest" name="getMinTest" time="0.008" />
   <testcase classname="BinaryTest" name="HeapifyTest" time="0.001" />
-  <testcase classname="BinaryTest" name="del_min_Test" time="0.001" />
+  <testcase classname="BinaryTest" name="del_min_Test" time="0.0" />
   <testcase classname="BinaryTest" name="decrease_key_Test" time="0.001" />
   <testcase classname="BinaryTest" name="capasityTest" time="0.001" />
+  <testcase classname="BinaryTest" name="insertTest" time="0.001" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
