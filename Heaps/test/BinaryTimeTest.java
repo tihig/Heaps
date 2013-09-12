@@ -38,4 +38,10 @@ public class BinaryTimeTest {
       assertTrue(sum < 2);
       
    }
+   @Test(timeout = 1000)
+   public void insertTime2(){
+       for (int i = 0; i < 1000; i++) {
+         bin.insert(i+4);
+      }
+   }
 }

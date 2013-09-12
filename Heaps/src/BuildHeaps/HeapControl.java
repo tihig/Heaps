@@ -25,7 +25,7 @@ public class HeapControl {
 //         x.setRight(h);
 //         buildHeap(numbers,j++,h);
 //      }
-      return new Node(null, null,null,0, 0);
+      return new Node(null,0, 0);
    }
 
    public void printTree() {

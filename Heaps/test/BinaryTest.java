@@ -1,9 +1,7 @@
 
 import Heaps.Binary;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,23 +15,11 @@ public class BinaryTest {
    public BinaryTest() {
    }
 
-   @BeforeClass
-   public static void setUpClass() {
-   }
-
-   @AfterClass
-   public static void tearDownClass() {
-   }
-
    @Before
    public void setUp() {
       this.bin = new Binary(heap, 2);
       int[] h = {2, 1, 3};
       this.hf = new Binary(h, 2);
-   }
-
-   @After
-   public void tearDown() {
    }
 
    @Test

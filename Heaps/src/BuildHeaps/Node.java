@@ -1,29 +1,35 @@
-
 package BuildHeaps;
 
 public class Node {
+
    Node left;
    Node right;
    Node p;
-   Node[] child;
+   Node[] child = new Node[256];
+   int c;
    int degree;
    int k;
-   
-   public Node(Node leftChild, Node rightChild, Node p,int degree, int k){
+   boolean mark;
+
+   public Node( Node p, int degree, int k) {
       this.left = null;
       this.right = null;
-      this.child = new Node[]{leftChild,rightChild};
       this.p = null;
+      this.c = 0;
       this.k = k;
-      this.degree = 0;
+      this.degree = degree;
+      this.mark = false;
    }
-   public int getKey(){
+
+   public int getKey() {
       return k;
    }
-   public Node getLeft(){
+
+   public Node getLeft() {
       return left;
    }
-   public Node getRight(){
+
+   public Node getRight() {
       return right;
    }
 
@@ -38,7 +44,11 @@ public class Node {
    public int getDegree() {
       return degree;
    }
-   
+
+   public void setMark(boolean mark) {
+      this.mark = mark;
+   }
+
    public void setKey(int k) {
       this.k = k;
    }
@@ -60,7 +70,7 @@ public class Node {
    }
 
    public void setChild(Node child) {
-//      this.child = child;
+      this.child[c] = child;
+      c++;
    }
- 
 }

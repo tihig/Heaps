@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="3" hostname="viivi-1215B-1215B" name="HeapControlTest" tests="3" time="0.281" timestamp="2013-09-11T18:06:40">
+<testsuite errors="0" failures="3" hostname="viivi-1215B-1215B" name="HeapControlTest" tests="3" time="0.279" timestamp="2013-09-12T04:48:58">
   <properties>
     <property name="netbeans.autoupdate.country" value="FI" />
     <property name="nb.wait.for.caches" value="true" />
@@ -42,7 +42,7 @@
     <property name="ant.file.Heaps-impl" value="/home/viivi/ssh/Heaps/nbproject/build-impl.xml" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner HeapControlTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/viivi/ssh/Heaps/build/test/results/TEST-HeapControlTest.xml crashfile=/home/viivi/ssh/Heaps/build/junitvmwatcher302905040428850797.properties propsfile=/home/viivi/ssh/Heaps/build/junit5898415711704122801.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner HeapControlTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/viivi/ssh/Heaps/build/test/results/TEST-HeapControlTest.xml crashfile=/home/viivi/ssh/Heaps/build/junitvmwatcher328975722408396490.properties propsfile=/home/viivi/ssh/Heaps/build/junit5610328304173826565.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
