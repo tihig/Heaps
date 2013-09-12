@@ -17,37 +17,31 @@ public class HeapControlTest {
    public HeapControlTest() {
       numbers = new int[]{1, 3, 4, 5, 7, 8};
       hc = new HeapControl();
-      h = hc.buildHeap(new int[]{1, 2, 3},0,null);
+      h = hc.buildHeap(2);
    }
-
-   @BeforeClass
-   public static void setUpClass() {
-   }
-
-   @AfterClass
-   public static void tearDownClass() {
-   }
-
    @Before
    public void setUp() {
    }
 
-   @After
-   public void tearDown() {
-   }
-
    @Test
    public void buildHeapTest1() {
-      assertEquals(h.getKey(), 1);
+      assertEquals(h.getKey(), 2);
    }
 
    @Test
-   public void buildHeapTest2() {
-      assertEquals(h.getLeft(), 2);
+   public void getRoot() {
+      Node x = h;
+      for (int i = 0; i < 4; i++) {
+         x.setLeft(new Node(null, 0, i + 3));
+         x = x.getLeft();
+      }
+      hc.setNode(h);
+      Node[] root = hc.getRoot();
+      assertEquals(5,hc.getR());
    }
    
-   @Test
-   public void buildHeapTest3() {
-      assertEquals(h.getRight(), 3);
-   }
+//   @Test
+//   public void buildHeapTest3() {
+//      assertEquals(h.getRight(), 3);
+//   }
 }
