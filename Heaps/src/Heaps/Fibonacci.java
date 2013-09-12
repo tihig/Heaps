@@ -7,11 +7,14 @@ public class Fibonacci {
    private Node n;
    private int min;
    private int d;
+   private Node[] root;
+   
 
    public Fibonacci(Node n) {
       this.n = n;
       this.min = n.getKey();
       this.d = 0;
+      
    }
 
    public Node getN() {
@@ -50,7 +53,8 @@ public class Fibonacci {
       }
 
    }
-
+   
+// same as union!
    public void merge() {
    }
 
@@ -72,5 +76,21 @@ public class Fibonacci {
    }
 
    public void cascading_cut(Node x) {
+      Node z = x.getP();
+      if (z != null) {
+         if (!x.isMark()) {
+            x.setMark(true);
+         } else {
+            cut(x, z);
+            cascading_cut(z);
+         }
+      }
+   }
+
+   public int extract_min() {
+      Node z = n;
+      if (z.getChild() != null) {
+      }
+      return 0;
    }
 }

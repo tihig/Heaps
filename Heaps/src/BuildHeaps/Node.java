@@ -43,6 +43,10 @@ public class Node {
       return child;
    }
 
+   public boolean isMark() {
+      return mark;
+   }
+
    public int getDegree() {
       return degree;
    }

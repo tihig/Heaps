@@ -3,6 +3,7 @@ package BuildHeaps;
 public class HeapControl {
 
    private Node f;
+   private int r;
 
    public HeapControl() {
 //      Node f = new Node(null, null, 0);
@@ -28,6 +29,30 @@ public class HeapControl {
       return new Node(null,0, 0);
    }
 
+   public void setNode(Node f) {
+      this.f = f;
+   }
+   
+
    public void printTree() {
+   }
+   public Node[] getRoot(){
+      Node[] root = new Node[50];
+      
+      Node x = f;
+      int i = 0;
+      while(x.getLeft() != null){
+         if(x.getLeft() == null){
+            break;
+         }
+         root[i] = x;
+         x = x.getLeft();
+         i++;
+      }
+      r = i-1;
+      return root;
+   }
+   public int getR(){
+      return r;
    }
 }
