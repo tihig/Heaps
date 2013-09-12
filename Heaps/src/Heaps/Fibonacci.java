@@ -32,9 +32,12 @@ public class Fibonacci {
          if (parent != null && parent.getKey() > x.getKey()) {
             cut(x, parent);
             cascading_cut(parent);
+            
          }
          if (x.getKey() < this.min) {
+            cut(x,parent);
             this.min = x.getKey();
+            n = x;
          }
       }
    }
@@ -70,6 +73,7 @@ public class Fibonacci {
          x.setLeft(parent.getLeft());
          parent.setLeft(x);
          x.setRight(parent);
+         parent.getChild()[x.getPlace()] = null;
       }
       parent.setLeft(x);
       x.setRight(parent);
