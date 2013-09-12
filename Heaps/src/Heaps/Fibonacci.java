@@ -88,9 +88,9 @@ public class Fibonacci {
    }
 
    public int extract_min() {
-      Node z = n;
-      if (z.getChild() != null) {
-      }
+//      Node z = n;
+//      if (z.getChild() != null) {
+//      }
       return 0;
    }
 }

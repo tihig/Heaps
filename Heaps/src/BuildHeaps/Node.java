@@ -55,6 +55,10 @@ public class Node {
       return place;
    }
 
+   public void setPlace(int place) {
+      this.place = place;
+   }
+
    public void setMark(boolean mark) {
       this.mark = mark;
    }
