@@ -10,15 +10,17 @@ public class Node {
    int degree;
    int k;
    boolean mark;
+   int place;
 
-   public Node( Node p, int degree, int k) {
+   public Node(Node p, int degree, int k) {
       this.left = null;
       this.right = null;
-      this.p = null;
+      this.p = p;
       this.c = 0;
       this.k = k;
       this.degree = degree;
       this.mark = false;
+      this.place = 0;
    }
 
    public int getKey() {
@@ -43,6 +45,10 @@ public class Node {
 
    public int getDegree() {
       return degree;
+   }
+
+   public int getPlace() {
+      return place;
    }
 
    public void setMark(boolean mark) {
@@ -71,6 +77,7 @@ public class Node {
 
    public void setChild(Node child) {
       this.child[c] = child;
+      this.place = c;
       c++;
    }
 }

@@ -2,10 +2,7 @@
 
 import BuildHeaps.Node;
 import Heaps.Fibonacci;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -35,4 +32,35 @@ public class FibonacciTest {
      f1.insert(x);
      assertEquals(x.getKey(), n1.getLeft().getKey());
   }
+  @Test
+  public void decrease_keyTest(){
+     Node x = n1.getChild()[1];
+     f1.decrease_key(x, 3);
+     
+     Node h = f1.getN();
+     
+     assertEquals(3,h.getChild()[1].getKey());
+  }
+   @Test
+  public void decrease_keyTest2(){
+     Node x = n1.getChild()[1];
+     f1.decrease_key(x, 1);
+     
+     Node h = f1.getN();
+     
+     assertEquals(1,h.getKey());
+  }
+   @Test
+   public void cutTest(){
+      Node parent = n1;
+      Node x = n1.getChild()[0];
+      
+      f1.cut(x, parent);
+      assertEquals(null, x.getP());
+   }
+   @Test
+   public void cascading_cutTest(){
+      
+   }
+  
 }
