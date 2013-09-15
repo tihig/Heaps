@@ -69,7 +69,7 @@ public class Fibonacci {
 
    public void consolidate() {
       Node A[] = new Node[256];
-      for (int i = 0; i < r + 1; i++) {
+      for (int i = 0; i < r; i++) {
          Node x = root[i];
          int d = x.getDegree();
          while (A[d] != null) {
