@@ -8,20 +8,24 @@ import Heaps.Fibonacci;
 public class Heaps {
 
    public static void main(String[] args) {
+      
+      float eka = System.currentTimeMillis();
+      
+      
 
-      Node nc = new Node(null, 0, 1);
-
-      Node x = nc;
-      for (int i = 0; i < 4; i++) {
-         x.setLeft(new Node(null, 0, 1 + 2));
-         x = x.getLeft();
-      }
-      Fibonacci fc = new Fibonacci(nc);
-      fc.consolidate();
-
-      nc = fc.getN();
-
-      System.out.println(nc.getKey());
+//      Node nc = new Node(null, 0, 1);
+//
+//      Node x = nc;
+//      for (int i = 0; i < 4; i++) {
+//         x.setLeft(new Node(null, 0, 1 + 2));
+//         x = x.getLeft();
+//      }
+//      Fibonacci fc = new Fibonacci(nc);
+//      fc.consolidate();
+//
+//      nc = fc.getN();
+//
+//      System.out.println(nc.getKey());
 
 
 //      HeapControl h = new HeapControl();

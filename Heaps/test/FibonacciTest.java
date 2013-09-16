@@ -81,4 +81,14 @@ public class FibonacciTest {
       nc = fc.getN();
       assertEquals(null, nc.getLeft());
    }
+   @Test
+   public void linkTest(){
+      Node link = new Node(null,0,1);
+      Node link2 = new Node(null,0,3);
+      
+      Fibonacci linkNode = new Fibonacci(link);
+      linkNode.link(link2, link);
+      
+      assertEquals(null,linkNode.getN().getLeft());
+   }
 }

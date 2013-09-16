@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="viivi-1215B-1215B" name="NodeTest" tests="4" time="0.266" timestamp="2013-09-12T09:27:02">
+<testsuite errors="0" failures="0" hostname="viivi-1215B-1215B" name="NodeTest" tests="4" time="0.264" timestamp="2013-09-16T13:40:20">
   <properties>
     <property name="netbeans.autoupdate.country" value="FI" />
     <property name="nb.wait.for.caches" value="true" />
@@ -42,7 +42,7 @@
     <property name="ant.file.Heaps-impl" value="/home/viivi/ssh/Heaps/nbproject/build-impl.xml" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner NodeTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/viivi/ssh/Heaps/build/test/results/TEST-NodeTest.xml crashfile=/home/viivi/ssh/Heaps/build/junitvmwatcher3625217638212788449.properties propsfile=/home/viivi/ssh/Heaps/build/junit9086220509171270750.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner NodeTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/viivi/ssh/Heaps/build/test/results/TEST-NodeTest.xml crashfile=/home/viivi/ssh/Heaps/build/junitvmwatcher2754600534086526771.properties propsfile=/home/viivi/ssh/Heaps/build/junit2304939992554439764.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -301,8 +301,8 @@
   </properties>
   <testcase classname="NodeTest" name="nodeKeyTest" time="0.007" />
   <testcase classname="NodeTest" name="getChildRight" time="0.0" />
-  <testcase classname="NodeTest" name="setChild" time="0.001" />
-  <testcase classname="NodeTest" name="getChildLeft" time="0.001" />
+  <testcase classname="NodeTest" name="setChild" time="0.0" />
+  <testcase classname="NodeTest" name="getChildLeft" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

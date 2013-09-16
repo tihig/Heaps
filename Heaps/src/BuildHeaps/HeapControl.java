@@ -19,6 +19,7 @@ public class HeapControl {
 
 //   public void printTree() {
 //   }
+   // ei ehkä tarvita...
    public Node[] getRoot() {
       Node[] root = new Node[50];
 

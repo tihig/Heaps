@@ -69,30 +69,33 @@ public class Fibonacci {
 
    public void consolidate() {
       Node A[] = new Node[256];
-      for (int i = 0; i < r; i++) {
-         Node x = root[i];
+      Node x = n;
+      while (x != null) {
+//         Node x = root[i];
          int d = x.getDegree();
+         Node y = x;
          while (A[d] != null) {
-            Node y = A[d];
-            if (x.getKey() > y.getKey()) {
-               Node yLeft = y.getLeft();
-               Node yRight = y.getRight();
-               y.setLeft(x.getLeft());
-               y.setRight(x.getRight());
-               x.setLeft(yLeft);
-               x.setRight(yRight);
-               root[x.getPlace()] = y;
-               root[y.getPlace()] = x;
+            if (y != x && y.getDegree() == x.getDegree()) {
+               if (x.getKey() > y.getKey()) {
+                  Node yLeft = y.getLeft();
+                  Node yRight = y.getRight();
+                  y.setLeft(x.getLeft());
+                  y.setRight(x.getRight());
+                  x.setLeft(yLeft);
+                  x.setRight(yRight);
 
-               int s = y.getPlace();
-               y.setPlace(x.getPlace());
-               x.setPlace(s);
+//                  int s = y.getPlace();
+//                  y.setPlace(x.getPlace());
+//                  x.setPlace(s);
+               }
+               link(y, x);
+               A[d] = null;
+               d = d + 1;
             }
-            link(y, x);
-            A[d] = null;
-            d = d + 1;
+            y = y.getLeft();
          }
          A[d] = x;
+         x = x.getLeft();
 
       }
       min = 0;
@@ -133,5 +136,25 @@ public class Fibonacci {
    }
 
    public void link(Node y, Node x) {
+      Node yLeft = y.getLeft();
+      Node yRight = y.getRight();
+
+      y.setLeft(null);
+      y.setRight(null);
+
+      if (yRight != null) {
+         yLeft.setRight(yRight);
+      }
+      
+      if (yLeft != null) {
+         yRight.setLeft(yLeft);
+      }
+
+      x.setChild(y);
+      y.setP(x);
+
+      x.setDegree(x.getDegree() + 1);
+      y.setMark(false);
+
    }
 }
