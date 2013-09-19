@@ -1,11 +1,17 @@
 package BuildHeaps;
 
+import Heaps.Binary;
+import Heaps.Fibonacci;
+
 public class HeapControl {
 
    private Node f;
-   private int r;
+   private Fibonacci fh;
+   private Binary bh;
 
    public HeapControl() {
+      this.fh = null;
+      this.bh = null;
 //      Node f = new Node(null, null, 0);
    }
 
@@ -13,29 +19,34 @@ public class HeapControl {
       return new Node(null, 0, k);
    }
 
-   public void setNode(Node f) {
-      this.f = f;
+   public void setFh(Fibonacci fh) {
+      this.fh = fh;
    }
 
-//   public void printTree() {
-//   }
-   // ei ehkä tarvita...
-   public Node[] getRoot() {
-      Node[] root = new Node[50];
+   public void setBh(Binary bh) {
+      this.bh = bh;
+   }
 
-      Node x = f;
-      int i = 0;
-      while (x != null) {
-         root[i] = x;
-//         x.setPlace(i);
-         x = x.getLeft();
-         i++;
+   public long[] insertTimeComparison() {
+      long[] values = new long[2];
+      Node insert = new Node(null, 0, 1);
+      long time = System.currentTimeMillis();
+      for (int i = 0; i < 10; i++) {
+         bh.insert(i);
       }
-      r = i;
-      return root;
+      long time2 = System.currentTimeMillis();
+      values[0] = time2 - time;
+
+
+      time = System.currentTimeMillis();
+      for (int i = 0; i < 10; i++) {
+         insert.setKey(i);
+         fh.insert(insert);
+      }
+      time2 = System.currentTimeMillis();
+      values[1] = time2 - time;
+
+      return values;
    }
 
-   public int getR() {
-      return r;
-   }
 }

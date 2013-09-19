@@ -8,7 +8,6 @@ public class Binary {
    public Binary(int[] heap, int heap_size) {
       this.heap = heap;
       this.heap_size = heap_size;
-
    }
 
    public int[] getHeap() {
@@ -42,15 +41,14 @@ public class Binary {
    }
 
    public void insert(int k) {
-      if (checkCapasity()) {
-         heap_size += 1;
-         int i = heap_size;
-         while (i > 1 && heap[parent(i)] > k) {
-            heap[i] = heap[parent(i)];
-            i = parent(i);
-         }
-         heap[i] = k;
+      checkCapasity();
+      heap_size += 1;
+      int i = heap_size;
+      while (i > 1 && heap[parent(i)] > k) {
+         heap[i] = heap[parent(i)];
+         i = parent(i);
       }
+      heap[i] = k;
 
    }
 
@@ -82,7 +80,7 @@ public class Binary {
    }
 
    public boolean checkCapasity() {
-      if (heap_size < heap.length - 1) {
+      if (heap_size == heap.length - 1) {
          return true;
       }
       int new_size = heap.length + (heap.length / 2);
