@@ -1,6 +1,5 @@
 package Heaps;
 
-import BuildHeaps.HeapControl;
 import BuildHeaps.Node;
 
 public class Fibonacci {
@@ -8,19 +7,11 @@ public class Fibonacci {
    private Node n;
    private int min;
    private int d;
-   private Node[] root;
-   private int r;
-   private HeapControl hc;
 
    public Fibonacci(Node n) {
       this.n = n;
       this.min = n.getKey();
       this.d = 0;
-      this.hc = new HeapControl();
-      hc.setNode(n);
-      this.root = hc.getRoot();
-      this.r = hc.getR();
-
    }
 
    public Node getN() {
@@ -71,38 +62,31 @@ public class Fibonacci {
       Node A[] = new Node[256];
       Node x = n;
       while (x != null) {
-//         Node x = root[i];
-         int d = x.getDegree();
-         Node y = x;
-         while (A[d] != null) {
-            if (y != x && y.getDegree() == x.getDegree()) {
-               if (x.getKey() > y.getKey()) {
-                  Node yLeft = y.getLeft();
-                  Node yRight = y.getRight();
-                  y.setLeft(x.getLeft());
-                  y.setRight(x.getRight());
-                  x.setLeft(yLeft);
-                  x.setRight(yRight);
-
-//                  int s = y.getPlace();
-//                  y.setPlace(x.getPlace());
-//                  x.setPlace(s);
-               }
-               link(y, x);
-               A[d] = null;
-               d = d + 1;
+         int degree = x.getDegree();
+         while (A[degree] != null) {
+            Node y = A[degree];
+            if (x.getKey() > y.getKey()) {
+               Node yLeft = y.getLeft();
+               Node yRight = y.getRight();
+               y.setLeft(x.getLeft());
+               y.setRight(x.getRight());
+               x.setLeft(yLeft);
+               x.setRight(yRight);
             }
-            y = y.getLeft();
-         }
-         A[d] = x;
-         x = x.getLeft();
+            link(y, x);
+            A[degree] = null;
+            degree = degree + 1;
 
+         }
+         A[degree] = x;
+         x = x.getLeft();
       }
       min = 0;
    }
 
    public void cut(Node x, Node parent) {
-      parent.getChild()[x.getPlace()] = null;
+      int place = findChild(x);
+      parent.getChild()[place] = null;
       x.setP(null);
       x.setMark(false);
       if (parent.getLeft() != null) {
@@ -110,7 +94,7 @@ public class Fibonacci {
          x.setLeft(parent.getLeft());
          parent.setLeft(x);
          x.setRight(parent);
-         parent.getChild()[x.getPlace()] = null;
+         parent.getChild()[place] = null;
       }
       parent.setLeft(x);
       x.setRight(parent);
@@ -136,6 +120,9 @@ public class Fibonacci {
    }
 
    public void link(Node y, Node x) {
+      if (y == null) {
+         return;
+      }
       Node yLeft = y.getLeft();
       Node yRight = y.getRight();
 
@@ -145,7 +132,7 @@ public class Fibonacci {
       if (yRight != null) {
          yLeft.setRight(yRight);
       }
-      
+
       if (yLeft != null) {
          yRight.setLeft(yLeft);
       }
@@ -156,5 +143,15 @@ public class Fibonacci {
       x.setDegree(x.getDegree() + 1);
       y.setMark(false);
 
+   }
+
+   public int findChild(Node x) {
+      Node[] kids = n.getChild();
+      for (int i = 0; i < kids.length; i++) {
+         if (kids[i] == x) {
+            return i;
+         }
+      }
+      return -1;
    }
 }

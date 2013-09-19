@@ -27,7 +27,7 @@ public class HeapControl {
       int i = 0;
       while (x != null) {
          root[i] = x;
-         x.setPlace(i);
+//         x.setPlace(i);
          x = x.getLeft();
          i++;
       }
