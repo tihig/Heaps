@@ -13,17 +13,17 @@ public class FibonacciTest {
    private Fibonacci f1;
 
    public FibonacciTest() {
-      this.n1 = new Node(null, 1, 2);
-      n1.setChild(new Node(n1, 1, 4));
-      n1.setChild(new Node(n1, 1, 5));
 //      this.n2 = new Node(
 //                        new Node(new Node(null,null,7),null,3),
 //                              new Node(null,null,4),1);
-      this.f1 = new Fibonacci(n1);
    }
 
    @Before
    public void setUp() {
+      this.n1 = new Node(null, 1, 2);
+      n1.setChild(new Node(n1, 1, 4));
+      n1.setChild(new Node(n1, 1, 5));
+      this.f1 = new Fibonacci(n1);
    }
 
    @Test
@@ -36,6 +36,7 @@ public class FibonacciTest {
    @Test
    public void decrease_keyTest() {
       Node x = n1.getChild()[1];
+
       f1.decrease_key(x, 3);
 
       Node h = f1.getN();
@@ -46,6 +47,7 @@ public class FibonacciTest {
    @Test
    public void decrease_keyTest2() {
       Node x = n1.getChild()[1];
+      System.out.println(x.getKey());
       f1.decrease_key(x, 1);
 
       Node h = f1.getN();
@@ -81,14 +83,15 @@ public class FibonacciTest {
       nc = fc.getN();
       assertEquals(null, nc.getLeft());
    }
+
    @Test
-   public void linkTest(){
-      Node link = new Node(null,0,1);
-      Node link2 = new Node(null,0,3);
-      
+   public void linkTest() {
+      Node link = new Node(null, 0, 1);
+      Node link2 = new Node(null, 0, 3);
+
       Fibonacci linkNode = new Fibonacci(link);
       linkNode.link(link2, link);
-      
-      assertEquals(null,linkNode.getN().getLeft());
+
+      assertEquals(null, linkNode.getN().getLeft());
    }
 }

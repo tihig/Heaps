@@ -80,7 +80,7 @@ public class Binary {
    }
 
    public boolean checkCapasity() {
-      if (heap_size == heap.length - 1) {
+      if (heap_size < heap.length - 1) {
          return true;
       }
       int new_size = heap.length + (heap.length / 2);

@@ -9,6 +9,7 @@ public class Node {
    int c;
    int degree;
    int k;
+   int place;
    boolean mark;
 
    public Node(Node p, int degree, int k) {
@@ -19,10 +20,19 @@ public class Node {
       this.k = k;
       this.degree = degree;
       this.mark = false;
+      this.place = -1;
    }
 
    public int getKey() {
       return k;
+   }
+
+   public int getPlace() {
+      return place;
+   }
+
+   public void setPlace(int place) {
+      this.place = place;
    }
 
    public Node getLeft() {
@@ -75,6 +85,7 @@ public class Node {
 
    public void setChild(Node child) {
       this.child[c] = child;
+      child.setPlace(c);
       c++;
    }
 }

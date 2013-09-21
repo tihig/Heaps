@@ -38,8 +38,9 @@ public class Fibonacci {
          }
       }
    }
-
-   public void delete_min() {
+   public void delete(Node x){
+      decrease_key(x,Integer.MIN_VALUE);
+      extract_min();
    }
 
    public void insert(Node k) {
@@ -52,10 +53,6 @@ public class Fibonacci {
          k.setRight(n);
       }
 
-   }
-
-// same as union!
-   public void merge() {
    }
 
    public void consolidate() {
@@ -85,7 +82,7 @@ public class Fibonacci {
    }
 
    public void cut(Node x, Node parent) {
-      int place = findChild(x);
+      int place = x.getPlace();
       parent.getChild()[place] = null;
       x.setP(null);
       x.setMark(false);
@@ -111,7 +108,7 @@ public class Fibonacci {
          }
       }
    }
-
+// same as Delete_min();
    public int extract_min() {
 //      Node z = n;
 //      if (z.getChild() != null) {
@@ -145,13 +142,4 @@ public class Fibonacci {
 
    }
 
-   public int findChild(Node x) {
-      Node[] kids = n.getChild();
-      for (int i = 0; i < kids.length; i++) {
-         if (kids[i] == x) {
-            return i;
-         }
-      }
-      return -1;
-   }
 }

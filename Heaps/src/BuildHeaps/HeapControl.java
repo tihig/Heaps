@@ -27,26 +27,26 @@ public class HeapControl {
       this.bh = bh;
    }
 
-   public long[] insertTimeComparison() {
-      long[] values = new long[2];
-      Node insert = new Node(null, 0, 1);
-      long time = System.currentTimeMillis();
-      for (int i = 0; i < 10; i++) {
-         bh.insert(i);
-      }
-      long time2 = System.currentTimeMillis();
-      values[0] = time2 - time;
-
-
-      time = System.currentTimeMillis();
-      for (int i = 0; i < 10; i++) {
-         insert.setKey(i);
-         fh.insert(insert);
-      }
-      time2 = System.currentTimeMillis();
-      values[1] = time2 - time;
-
-      return values;
-   }
+//   public long[] insertTimeComparison() {
+//      long[] values = new long[2];
+//      Node insert = new Node(null, 0, 1);
+//      long time = System.currentTimeMillis();
+//      for (int i = 0; i < 10; i++) {
+//         bh.insert(i);
+//      }
+//      long time2 = System.currentTimeMillis();
+//      values[0] = time2 - time;
+//
+//
+//      time = System.currentTimeMillis();
+//      for (int i = 0; i < 10; i++) {
+//         insert.setKey(i);
+//         fh.insert(insert);
+//      }
+//      time2 = System.currentTimeMillis();
+//      values[1] = time2 - time;
+//
+//      return values;
+//   }
 
 }
