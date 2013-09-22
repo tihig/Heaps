@@ -12,6 +12,12 @@ public class Node {
    int place;
    boolean mark;
 
+   /**
+    *
+    * @param p // parent for Node
+    * @param degree
+    * @param k // key of Node
+    */
    public Node(Node p, int degree, int k) {
       this.left = null;
       this.right = null;

@@ -23,6 +23,9 @@ public class Fibonacci {
    }
 
    public void decrease_key(Node x, int newk) {
+      if(x == null){
+         return;
+      }
       if (newk < x.getKey()) {
          x.setKey(newk);
          Node parent = x.getP();
@@ -40,11 +43,19 @@ public class Fibonacci {
    }
 
    public void delete(Node x) {
+      if (x == null) {
+         return;
+      }
+
       decrease_key(x, Integer.MIN_VALUE);
       extract_min();
+
    }
 
    public void insert(Node k) {
+      if (k == null) {
+         return;
+      }
       if (min > k.getKey()) {
          k.setChild(n);
          n.setP(k);
@@ -53,6 +64,7 @@ public class Fibonacci {
          n.setLeft(k);
          k.setRight(n);
       }
+
 
    }
 
@@ -83,24 +95,29 @@ public class Fibonacci {
    }
 
    public void cut(Node x, Node parent) {
-      if (x != null) {
-         int place = x.getPlace();
-         parent.getChild()[place] = null;
-         x.setP(null);
-         x.setMark(false);
-         if (parent.getLeft() != null) {
-            parent.getLeft().setRight(x);
-            x.setLeft(parent.getLeft());
-            parent.setLeft(x);
-            x.setRight(parent);
-            parent.getChild()[place] = null;
-         }
+      if (x == null || parent == null) {
+         return;
+      }
+      int place = x.getPlace();
+      parent.getChild()[place] = null;
+      x.setP(null);
+      x.setMark(false);
+      if (parent.getLeft() != null) {
+         parent.getLeft().setRight(x);
+         x.setLeft(parent.getLeft());
          parent.setLeft(x);
          x.setRight(parent);
+         parent.getChild()[place] = null;
       }
+      parent.setLeft(x);
+      x.setRight(parent);
+
    }
 
    public void cascading_cut(Node x) {
+      if (x == null) {
+         return;
+      }
       Node z = x.getP();
       if (z != null) {
          if (!x.isMark()) {
@@ -110,13 +127,16 @@ public class Fibonacci {
             cascading_cut(z);
          }
       }
+
    }
 // same as Delete_min();
 
    public int extract_min() {
+      if (n != null) {
 //      Node z = n;
 //      if (z.getChild() != null) {
 //      }
+      }
       return 0;
    }
 

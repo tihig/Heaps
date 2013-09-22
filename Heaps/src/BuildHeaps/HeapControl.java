@@ -19,6 +19,14 @@ public class HeapControl {
       return new Node(null, 0, k);
    }
 
+   public Fibonacci getFh() {
+      return fh;
+   }
+
+   public Binary getBh() {
+      return bh;
+   }
+
    public void setFh(Fibonacci fh) {
       this.fh = fh;
    }
@@ -26,27 +34,11 @@ public class HeapControl {
    public void setBh(Binary bh) {
       this.bh = bh;
    }
-
-//   public long[] insertTimeComparison() {
-//      long[] values = new long[2];
-//      Node insert = new Node(null, 0, 1);
-//      long time = System.currentTimeMillis();
-//      for (int i = 0; i < 10; i++) {
-//         bh.insert(i);
-//      }
-//      long time2 = System.currentTimeMillis();
-//      values[0] = time2 - time;
-//
-//
-//      time = System.currentTimeMillis();
-//      for (int i = 0; i < 10; i++) {
-//         insert.setKey(i);
-//         fh.insert(insert);
-//      }
-//      time2 = System.currentTimeMillis();
-//      values[1] = time2 - time;
-//
-//      return values;
-//   }
+   public void printBh(){
+      
+   }
+   public void printFh(){
+      
+   }
 
 }

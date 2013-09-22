@@ -23,6 +23,9 @@ public class Binary {
    }
 
    public void decrease_key(int i, int newk) {
+      if(i < 0){
+         return;
+      }
       if (newk < heap[i]) {
          heap[i] = newk;
          while (i > 1 && heap[parent(i)] > newk) {
@@ -35,6 +38,9 @@ public class Binary {
    }
 
    public void del_min() {
+      if(heap == null){
+         return;
+      }
       heap[0] = heap[heap_size];
       heap_size -= 1;
       heapify(0);
@@ -56,6 +62,9 @@ public class Binary {
    }
 
    public void heapify(int i) {
+      if(i < 0){
+         return;
+      }
       int l = left(i);
       int r = right(i);
       int min = 0;
