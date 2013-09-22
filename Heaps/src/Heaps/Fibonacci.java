@@ -38,8 +38,9 @@ public class Fibonacci {
          }
       }
    }
-   public void delete(Node x){
-      decrease_key(x,Integer.MIN_VALUE);
+
+   public void delete(Node x) {
+      decrease_key(x, Integer.MIN_VALUE);
       extract_min();
    }
 
@@ -82,19 +83,21 @@ public class Fibonacci {
    }
 
    public void cut(Node x, Node parent) {
-      int place = x.getPlace();
-      parent.getChild()[place] = null;
-      x.setP(null);
-      x.setMark(false);
-      if (parent.getLeft() != null) {
-         parent.getLeft().setRight(x);
-         x.setLeft(parent.getLeft());
+      if (x != null) {
+         int place = x.getPlace();
+         parent.getChild()[place] = null;
+         x.setP(null);
+         x.setMark(false);
+         if (parent.getLeft() != null) {
+            parent.getLeft().setRight(x);
+            x.setLeft(parent.getLeft());
+            parent.setLeft(x);
+            x.setRight(parent);
+            parent.getChild()[place] = null;
+         }
          parent.setLeft(x);
          x.setRight(parent);
-         parent.getChild()[place] = null;
       }
-      parent.setLeft(x);
-      x.setRight(parent);
    }
 
    public void cascading_cut(Node x) {
@@ -109,6 +112,7 @@ public class Fibonacci {
       }
    }
 // same as Delete_min();
+
    public int extract_min() {
 //      Node z = n;
 //      if (z.getChild() != null) {
@@ -126,11 +130,11 @@ public class Fibonacci {
       y.setLeft(null);
       y.setRight(null);
 
-      if (yRight != null) {
+      if (yLeft != null) {
          yLeft.setRight(yRight);
       }
 
-      if (yLeft != null) {
+      if (yRight != null) {
          yRight.setLeft(yLeft);
       }
 
@@ -141,5 +145,4 @@ public class Fibonacci {
       y.setMark(false);
 
    }
-
 }

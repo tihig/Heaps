@@ -60,6 +60,13 @@ public class BinaryTest {
       bin.insert(4);
       assertEquals(4,bin.getHeap()[3]);
    }
+   @Test (timeout = 1000)
+   public void timeTest(){
+      //here all the methods written open
+      
+      
+  
+   }
 
   
 }
