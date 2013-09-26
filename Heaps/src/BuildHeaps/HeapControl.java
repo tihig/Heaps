@@ -40,5 +40,8 @@ public class HeapControl {
    public void printFh(){
       
    }
+   public void depthfirstPrint(Node x){
+      
+   }
 
 }
