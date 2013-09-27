@@ -69,6 +69,14 @@ public class Node {
       this.mark = mark;
    }
 
+    public int getC() {
+        return c;
+    }
+
+    public void setC(int c) {
+        this.c = c;
+    }
+
    public void setKey(int k) {
       this.k = k;
    }

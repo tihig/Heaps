@@ -36,7 +36,7 @@ public class BinaryTest {
    @Test
    public void del_min_Test() {
       bin.del_min();
-      assertEquals(bin.getMin(), 2);
+      assertEquals(2, bin.getMin());
    }
 
    @Test

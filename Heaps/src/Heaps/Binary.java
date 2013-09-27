@@ -42,8 +42,8 @@ public class Binary {
          return;
       }
       heap[0] = heap[heap_size];
-      heap_size -= 1;
       heapify(0);
+      heap_size -= 1;
    }
 
    public void insert(int k) {
@@ -104,10 +104,19 @@ public class Binary {
    }
 
    public int left(int i) {
+       if(i == 0){
+           return 1;
+       }
+       if(i == 1){
+           return 3;
+       }
       return 2 * i;
    }
 
    public int right(int i) {
+       if(i == 0){
+           return 2;
+       }
       return 2 * i + 1;
    }
 }

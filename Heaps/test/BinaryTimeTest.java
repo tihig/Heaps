@@ -34,7 +34,7 @@ public class BinaryTimeTest {
       }
       float second = System.currentTimeMillis();
       float sum = second-first;
-      System.out.println("used time: "+ sum);
+      System.out.println("Insert, time: "+ sum);
       assertTrue(sum < 2);
       
    }
