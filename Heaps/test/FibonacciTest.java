@@ -46,7 +46,6 @@ public class FibonacciTest {
    @Test
    public void decrease_keyTest2() {
       Node x = n1.getChild()[1];
-      System.out.println(x.getKey());
       f1.decrease_key(x, 1);
 
       Node h = f1.getN();

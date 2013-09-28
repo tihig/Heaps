@@ -58,7 +58,20 @@ public class Binary {
 
    }
 
-   public void merge() {
+   public void merge(Binary other) {
+      int[] newHeap = new int[50];
+      int[] otherHeap = other.getHeap();
+      
+      other.checkCapasity();
+     
+      int i = 0;
+      while(heap[i] != Integer.MAX_VALUE || otherHeap[i] != Integer.MAX_VALUE){
+         int add = 0;
+         if(heap[i] == Integer.MAX_VALUE){
+            
+         }
+      }
+              
    }
 
    public void heapify(int i) {
