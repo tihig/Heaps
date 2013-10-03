@@ -8,13 +8,10 @@ import static org.junit.Assert.*;
 public class FibonacciTest {
 
    private Node n1;
-   private Node n2;
    private Fibonacci f1;
 
    public FibonacciTest() {
-//      this.n2 = new Node(
-//                        new Node(new Node(null,null,7),null,3),
-//                              new Node(null,null,4),1);
+
    }
 
    @Before
@@ -35,9 +32,7 @@ public class FibonacciTest {
    @Test
    public void decrease_keyTest() {
       Node x = n1.getChild()[1];
-
       f1.decrease_key(x, 3);
-
       Node h = f1.getN();
 
       assertEquals(3, h.getChild()[1].getKey());
@@ -46,12 +41,18 @@ public class FibonacciTest {
    @Test
    public void decrease_keyTest2() {
       Node x = n1.getChild()[1];
-      System.out.println(x.getKey());
       f1.decrease_key(x, 1);
-
       Node h = f1.getN();
 
       assertEquals(1, h.getKey());
+   }
+   @Test
+   public void deleteTest(){
+       Node del = n1.getChild()[0];
+       f1.delete(del);
+       
+       int key = f1.getN().getChild()[0].getKey();
+       assertEquals(5,key);
    }
 
    @Test
@@ -92,5 +93,14 @@ public class FibonacciTest {
       linkNode.link(link2, link);
 
       assertEquals(null, linkNode.getN().getLeft());
+   }
+   @Test
+   public void moveChildTest(){
+       f1.getN().getChild()[0] = null;
+       f1.getN().moveChild();
+       
+       int key = f1.getN().getChild()[0].getKey();
+       assertEquals(5,key);
+       
    }
 }

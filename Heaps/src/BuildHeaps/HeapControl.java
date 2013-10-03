@@ -5,19 +5,19 @@ import Heaps.Fibonacci;
 
 public class HeapControl {
 
-    private Node f;
     private Fibonacci fh;
     private Binary bh;
 
     public HeapControl() {
         this.fh = null;
         this.bh = null;
-//      Node f = new Node(null, null, 0);
     }
 
     public Node buildHeap(int k) {
         return new Node(null, 0, k);
     }
+
+   
 
     public Fibonacci getFh() {
         return fh;
@@ -47,14 +47,14 @@ public class HeapControl {
         int j = 0;
         while (x != Integer.MAX_VALUE) {
             i--;
-            if (heap[bh.left(h)] != Integer.MAX_VALUE) {
+            if (bh.left(h) < bh.getHeap_size() && heap[bh.left(h)] != Integer.MAX_VALUE) {
                 System.out.print("_");
                 j++;
             } else {
                 System.out.print(" ");
             }
             System.out.print(x);
-            if (heap[bh.right(h)] != Integer.MAX_VALUE) {
+            if (bh.right(h) < bh.getHeap_size() && heap[bh.right(h)] != Integer.MAX_VALUE) {
                 System.out.print("_");
                 j++;
             }
@@ -89,21 +89,23 @@ public class HeapControl {
         Node[] childs = x.getChild();
         int length = childsLength(childs);
 
-        System.out.print(x.getKey() + "");
+        System.out.print(" " + x.getKey());
 
-        if (length > -1) {
-            System.out.print(":");
+        if (length == -1) {
+            System.out.print(", ");
+        } else if (length > -1) {
+            System.out.print(": ");
 
             for (int i = 0; i < length; i++) {
                 Node node = childs[i];
                 if (node == null) {
                     break;
                 }
-                
+
                 dfs(node);
+
             }
 
-            System.out.println(", ");
         }
     }
 

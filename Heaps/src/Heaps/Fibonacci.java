@@ -37,6 +37,8 @@ public class Fibonacci {
             if (x.getKey() < this.min) {
                 cut(x, parent);
                 this.min = x.getKey();
+                x.setLeft(n);
+                n.setRight(x);
                 n = x;
             }
         }
@@ -49,6 +51,9 @@ public class Fibonacci {
 
         decrease_key(x, Integer.MIN_VALUE);
         extract_min();
+        if (n != null) {
+            n.moveChild();
+        }
 
     }
 
@@ -100,7 +105,7 @@ public class Fibonacci {
         }
         int place = x.getPlace();
         parent.getChild()[place] = null;
-        parent.setC(parent.getC()-1);
+        parent.setC(parent.getC() - 1);
         x.setP(null);
         x.setMark(false);
         if (parent.getLeft() != null) {
@@ -132,15 +137,35 @@ public class Fibonacci {
         }
 
     }
-// same as Delete_min();
 
-    public int extract_min() {
+    public Node extract_min() {
         if (n != null) {
-//      Node z = n;
-//      if (z.getChild() != null) {
-//      }
+            Node z = n;
+            if (z.getChild() != null) {
+                Node[] childs = z.getChild();
+                for (int i = 0; i <= z.getC(); i++) {
+                    Node n = childs[i];
+                    if (n == null) {
+                        n.setRight(z);
+                        n.setLeft(z.getLeft());
+                        z.setLeft(n);
+                        n.setP(null);
+                    }
+                }
+            }
+            if (z.getP() != null) {
+                z.getP().getChild()[z.getPlace()] = null;
+            }
+            if (z.getLeft() == null) {
+                this.n = null;
+                this.min = 0;
+            } else {
+                n = z.getLeft();
+                n.setRight(null);
+                consolidate();
+            }
         }
-        return 0;
+        return n;
     }
 
     public void link(Node y, Node x) {

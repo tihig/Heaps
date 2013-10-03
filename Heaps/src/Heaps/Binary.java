@@ -14,6 +14,10 @@ public class Binary {
       return heap;
    }
 
+    public int getHeap_size() {
+        return heap_size;
+    }
+
    public int getMin() {
       return heap[0];
    }
@@ -47,8 +51,9 @@ public class Binary {
    }
 
    public void insert(int k) {
-      checkCapasity();
+      this.heap = checkCapasity(this.heap,this.heap_size);
       heap_size += 1;
+
       int i = heap_size;
       while (i > 1 && heap[parent(i)] > k) {
          heap[i] = heap[parent(i)];
@@ -58,7 +63,33 @@ public class Binary {
 
    }
 
-   public void merge() {
+   public void merge(Binary other) {
+      int[] newHeap = initializeHeap(new int[this.heap.length]);
+      int[] otherHeap =  other.checkCapasity(other.getHeap(),other.heap_size);
+     
+      int i = 0;
+      int j = 0;
+      int k = 0;
+      while(heap[k] != Integer.MAX_VALUE || otherHeap[j] != Integer.MAX_VALUE){
+         newHeap = checkCapasity(newHeap,i);
+         if(heap[k] == otherHeap[j]){
+            newHeap[i] = heap[k];
+            k++;
+            j++;
+         }
+         else if( otherHeap[j] < heap[k]){
+             newHeap[i] = otherHeap[j] ;
+             j++;
+         } 
+         else{
+            newHeap[i] = heap[k];
+            k++; 
+         }
+         i++;
+      }
+      
+      this.heap = newHeap;
+      this.heap_size = i-1;       
    }
 
    public void heapify(int i) {
@@ -88,15 +119,21 @@ public class Binary {
 
    }
 
-   public boolean checkCapasity() {
-      if (heap_size < heap.length - 1) {
-         return true;
+   public int[] checkCapasity(int[] h, int h_size) {
+      if (h_size < heap.length - 1) {
+         return h;
       }
-      int new_size = heap.length + (heap.length / 2);
-      int[] new_heap = new int[new_size];
-      System.arraycopy(heap, 0, new_heap, 0, heap.length);
-      heap = new_heap;
-      return heap.length == new_size;
+      int new_size = h.length + (h.length / 2);
+      int[] new_heap = initializeHeap(new int[new_size]);
+      System.arraycopy(h, 0, new_heap, 0, h.length);
+      return new_heap;
+   }
+   
+   public int[] initializeHeap(int[] h){
+       for (int i = 0; i < h.length; i++) {
+           h[i] = Integer.MAX_VALUE;
+       }
+       return h;
    }
 
    public int parent(int i) {
@@ -107,16 +144,13 @@ public class Binary {
        if(i == 0){
            return 1;
        }
-       if(i == 1){
-           return 3;
-       }
-      return 2 * i;
+      return 2 * i +1;
    }
 
    public int right(int i) {
        if(i == 0){
            return 2;
        }
-      return 2 * i + 1;
+      return 2 * i +2;
    }
 }

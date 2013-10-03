@@ -4,34 +4,50 @@ import BuildHeaps.HeapControl;
 import BuildHeaps.Node;
 import Heaps.Binary;
 import Heaps.Fibonacci;
+import java.util.Scanner;
 
 public class Heaps {
-    
+
     public static void main(String[] args) {
+        HeapControl hc = new HeapControl();
+        Scanner reader = new Scanner(System.in);
 
-//      int[] heap = {1, 2, 3, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
-//      
-//      Binary b = new Binary(heap,2);
-//     
-//      h.setBh(b);
-//      b.heapify(0);
-//      
-//      h.printBh();
-        Node n1 = new Node(null, 1, 2);
-        Node oo = new Node(n1, 0, 4);
-        oo.setChild(new Node(oo,0,7));
-        n1.setChild(oo);
-        n1.setChild(new Node(n1, 0, 5));
-        Fibonacci f1 = new Fibonacci(n1);
-        
-        f1.decrease_key(n1.getChild()[1], 1);
-        
-        
-        HeapControl h = new HeapControl();
-        h.setFh(f1);
 
-     // joku mysteeripilkku on tullu tänne O__O
-        h.printFh();
+        Node node = hc.buildHeap(1);
+        Fibonacci f1 = new Fibonacci(node);
+
+        Binary b1 = new Binary(new int[]{1, Integer.MAX_VALUE}, 0);
+
+        hc.setFh(f1);
+        hc.setBh(b1);
+
+
+//        while (true) {
+//            System.out.println("Anna komento: ");
+//            System.out.println("1. insert");
+//            System.out.println("2. delete min");
+//            System.out.println("3. decrease key");
+//            System.out.println("4. lopeta");
+//
+//            int answer = Integer.parseInt(reader.nextLine());
+//            f1 = hc.getFh();
+//            b1 = hc.getBh();
+//            if (answer == 1) {
+//                System.out.println("anna luku: ");
+//                int number = Integer.parseInt(reader.nextLine());
+//                f1.insert(new Node(null, 0, number));
+//                b1.insert(number);
+//            } else if (answer == 2) {
+//            } else if (answer == 3) {
+//            } else {
+//                System.out.println("END!");
+//                break;
+//            }
+////            hc.printBh();
+////            System.out.println("////////");
+////            hc.printFh();
+//        }
+
 
     }
 }

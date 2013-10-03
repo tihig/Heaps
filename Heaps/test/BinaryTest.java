@@ -1,12 +1,10 @@
 
 import Heaps.Binary;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BinaryTest {
-// TiRan testeistä aikatesteille mallia (joku stopwatch etc...)
 
    private int[] heap = {1, 2, 3, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
    private Binary bin;
@@ -24,13 +22,13 @@ public class BinaryTest {
 
    @Test
    public void getMinTest() {
-      assertEquals(bin.getMin(), 1);
+      assertEquals(1, bin.getMin());
    }
 
    @Test
    public void HeapifyTest() {
       hf.heapify(0);
-      assertEquals(hf.getMin(), 1);
+      assertEquals(1, hf.getMin());
    }
 
    @Test
@@ -43,16 +41,15 @@ public class BinaryTest {
    public void decrease_key_Test() {
       Binary dec = new Binary(new int[]{1, 3, 4, 5}, 4);
       dec.decrease_key(3, 2);
-      assertEquals(dec.getKey(1), 2);
+      assertEquals(2,dec.getKey(1));
    }
 
    @Test
    public void capasityTest() {
       Binary full = new Binary(new int[]{1, 2}, 1);
 
-      full.checkCapasity();
-      int[] new_full = full.getHeap();
-      assertEquals(new_full.length, 3);
+      int[] new_full = full.checkCapasity(full.getHeap(),full.getHeap_size());
+      assertEquals(3,new_full.length);
 
    }
    @Test
@@ -60,13 +57,10 @@ public class BinaryTest {
       bin.insert(4);
       assertEquals(4,bin.getHeap()[3]);
    }
-   @Test (timeout = 1000)
-   public void timeTest(){
-      //here all the methods written open
-      
-      
-  
+   @Test
+   public void mergeTest(){
+      Binary m = new Binary(new int[]{2,4,5,7,Integer.MAX_VALUE},3);
+      bin.merge(m);
+      assertEquals(5,bin.getHeap_size());
    }
-
-  
 }
