@@ -5,13 +5,9 @@ import BuildHeaps.Node;
 public class Fibonacci {
 
     private Node n;
-    private int min;
-    private int d;
 
     public Fibonacci(Node n) {
         this.n = n;
-        this.min = n.getKey();
-        this.d = 0;
     }
 
     public Node getN() {
@@ -19,7 +15,10 @@ public class Fibonacci {
     }
 
     public int getMin() {
-        return min;
+        if (n == null) {
+            return 0;
+        }
+        return n.getKey();
     }
 
     public void decrease_key(Node x, int newk) {
@@ -34,13 +33,22 @@ public class Fibonacci {
                 cascading_cut(parent);
 
             }
-            if (x.getKey() < this.min) {
-                cut(x, parent);
-                this.min = x.getKey();
+            if (x.getKey() < getMin()) {
+                Node left = null;
+                Node right = null;
+                if (x.getLeft() != null) {
+                    left = x.getLeft();
+                }
+                if (x.getRight() != null) {
+                    right = x.getRight();
+                }
                 x.setLeft(n);
-                n.setRight(x);
+                x.setRight(null);
+                n.setLeft(left);
+                n.setRight(right);
                 n = x;
             }
+
         }
     }
 
@@ -51,7 +59,7 @@ public class Fibonacci {
 
         decrease_key(x, Integer.MIN_VALUE);
         extract_min();
-        if (n != null) {
+        if (n != null && n.getChild() != null) {
             n.moveChild();
         }
 
@@ -61,42 +69,64 @@ public class Fibonacci {
         if (k == null) {
             return;
         }
-        if (min > k.getKey()) {
+        if (getMin() > k.getKey()) {
             k.setChild(n);
             n.setP(k);
             n = k;
         } else {
+            if (n.getLeft() != null) {
+                n.getLeft().setRight(k);
+                k.setLeft(n.getLeft());
+            }
             n.setLeft(k);
             k.setRight(n);
         }
-
-
+//        consolidate();
     }
 
     public void consolidate() {
         Node A[] = new Node[256];
         Node x = n;
+        int val = 0;
         while (x != null) {
             int degree = x.getDegree();
             while (A[degree] != null) {
                 Node y = A[degree];
                 if (x.getKey() > y.getKey()) {
-                    Node yLeft = y.getLeft();
-                    Node yRight = y.getRight();
-                    y.setLeft(x.getLeft());
-                    y.setRight(x.getRight());
-                    x.setLeft(yLeft);
-                    x.setRight(yRight);
+                    int keyX = x.getKey();
+                    x.setKey(y.getKey());
+                    y.setKey(keyX);
                 }
                 link(y, x);
                 A[degree] = null;
                 degree = degree + 1;
 
             }
+
             A[degree] = x;
+            val = degree;
             x = x.getLeft();
         }
-        min = 0;
+        int i = val;
+        while (A[i] != null) {
+            if (i == 0) {
+                n = A[i];
+            } else if (A[i].getKey() < n.getKey()) {
+                n.setRight(A[i]);
+                A[i].setLeft(n);
+                A[i].setRight(null);
+                n = A[i];
+            } else {
+                Node left = n.getLeft();
+                n.setLeft(A[i]);
+                A[i].setRight(n);
+                A[i].setLeft(left);
+                if (left != null) {
+                    left.setRight(A[i]);
+                }
+            }
+            i++;
+        }
     }
 
     public void cut(Node x, Node parent) {
@@ -144,21 +174,20 @@ public class Fibonacci {
             if (z.getChild() != null) {
                 Node[] childs = z.getChild();
                 for (int i = 0; i <= z.getC(); i++) {
-                    Node n = childs[i];
-                    if (n == null) {
-                        n.setRight(z);
-                        n.setLeft(z.getLeft());
-                        z.setLeft(n);
-                        n.setP(null);
+                    Node child = childs[i];
+                    if (child != null) {
+                        child.setRight(z);
+                        child.setLeft(z.getLeft());
+                        z.setLeft(child);
+                        child.setP(null);
                     }
                 }
             }
             if (z.getP() != null) {
                 z.getP().getChild()[z.getPlace()] = null;
             }
-            if (z.getLeft() == null) {
+            if (z.getLeft() == null && z.getRight() == null) {
                 this.n = null;
-                this.min = 0;
             } else {
                 n = z.getLeft();
                 n.setRight(null);

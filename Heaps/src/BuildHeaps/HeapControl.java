@@ -14,10 +14,10 @@ public class HeapControl {
     }
 
     public Node buildHeap(int k) {
-        return new Node(null, 0, k);
+        Node n = new Node(null, 0, k);
+        n.setLeft(new Node(null, 0, Integer.MAX_VALUE));
+        return n;
     }
-
-   
 
     public Fibonacci getFh() {
         return fh;
@@ -39,9 +39,11 @@ public class HeapControl {
         if (bh == null) {
             return;
         }
+        bh.checkCapasity(bh.getHeap(), bh.getHeap_size());
         int[] heap = bh.getHeap();
         int h = 0;
         int x = heap[0];
+
 
         int i = 1;
         int j = 0;
@@ -57,13 +59,19 @@ public class HeapControl {
             if (bh.right(h) < bh.getHeap_size() && heap[bh.right(h)] != Integer.MAX_VALUE) {
                 System.out.print("_");
                 j++;
+            } else {
+                System.out.print(" ");
             }
+
             if (i == 0) {
                 System.out.println("");
                 i = j;
                 j = 0;
             }
             h++;
+            if(h >= heap.length){
+                break;
+            }
             x = heap[h];
         }
     }
@@ -79,6 +87,7 @@ public class HeapControl {
     }
 
     public void dfs(Node x) {
+        //stays in loop sometimes -.-
         if (x == null) {
             return;
         }
@@ -101,9 +110,7 @@ public class HeapControl {
                 if (node == null) {
                     break;
                 }
-
                 dfs(node);
-
             }
 
         }

@@ -28,6 +28,12 @@ public class FibonacciTest {
       f1.insert(x);
       assertEquals(x.getKey(), n1.getLeft().getKey());
    }
+   @Test
+   public void insertTest2() {
+      Node x = new Node(null, 0, 3);
+      f1.insert(x);
+      assertEquals(x.getKey(), n1.getLeft().getKey());
+   }
 
    @Test
    public void decrease_keyTest() {
@@ -46,6 +52,15 @@ public class FibonacciTest {
 
       assertEquals(1, h.getKey());
    }
+    @Test
+   public void decrease_keyTest3() {
+      Node x = n1.getChild()[1];
+      f1.insert(new Node(null,0,8));
+      f1.decrease_key(x, 1);
+      Node h = f1.getN().getLeft();
+
+      assertEquals(8, h.getLeft().getKey());
+   }
    @Test
    public void deleteTest(){
        Node del = n1.getChild()[0];
@@ -53,6 +68,15 @@ public class FibonacciTest {
        
        int key = f1.getN().getChild()[0].getKey();
        assertEquals(5,key);
+   }
+      @Test
+   public void deleteTest2(){
+       Node del = n1.getChild()[0];
+       f1.insert(new Node(null,0,8));
+       f1.delete(del);
+       
+       int key = f1.getN().getLeft().getKey();
+       assertEquals(8,key);
    }
 
    @Test
@@ -83,6 +107,21 @@ public class FibonacciTest {
       nc = fc.getN();
       assertEquals(null, nc.getLeft());
    }
+//   @Test
+//   public void consolidateTest2() {
+//      Node nc = new Node(null, 0, 1);
+//
+//      Node x = nc;
+//      for (int i = 0; i < 4; i++) {
+//         x.setLeft(new Node(null, 0, 1 + 2));
+//         x = x.getLeft();
+//      }
+//      Fibonacci fc = new Fibonacci(nc);
+//      fc.consolidate();
+//
+//      nc = fc.getN();
+//      assertEquals(null, nc.getLeft());
+//   }
 
    @Test
    public void linkTest() {

@@ -67,8 +67,10 @@ public class FibonacciTimeTest {
     @Test
     public void insertTime() {
         long first = System.currentTimeMillis();
-        Node x = new Node(null, 0, 3);
-        f1.insert(x);
+        for (int i = 0; i < 100; i++) {
+            Node x = new Node(null, 0, i+3);
+            f1.insert(x);
+        }
         long sec = System.currentTimeMillis();
         long sum = sec - first;
 
@@ -93,15 +95,9 @@ public class FibonacciTimeTest {
 
     @Test
     public void consolidateTime() {
+        Node n = help.buildConsolidateHeap();
         long first = System.currentTimeMillis();
-        Node nc = new Node(null, 0, 1);
-
-        Node x = nc;
-        for (int i = 0; i < 4; i++) {
-            x.setLeft(new Node(null, 0, 1 + 2));
-            x = x.getLeft();
-        }
-        Fibonacci fc = new Fibonacci(nc);
+        Fibonacci fc = new Fibonacci(n);
         fc.consolidate();
         long sec = System.currentTimeMillis();
         long sum = sec - first;
@@ -112,8 +108,6 @@ public class FibonacciTimeTest {
 
     @Test
     public void fibonacciTime() {
-
-
         long first = System.currentTimeMillis();
 
         long sec = System.currentTimeMillis();

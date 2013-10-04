@@ -45,22 +45,21 @@ public class Binary {
       if(heap == null){
          return;
       }
+      checkCapasity(heap,heap_size);
       heap[0] = heap[heap_size];
       heapify(0);
       heap_size -= 1;
    }
-
    public void insert(int k) {
       this.heap = checkCapasity(this.heap,this.heap_size);
       heap_size += 1;
 
       int i = heap_size;
-      while (i > 1 && heap[parent(i)] > k) {
+      while (i > 0 && heap[parent(i)] > k) {
          heap[i] = heap[parent(i)];
          i = parent(i);
       }
       heap[i] = k;
-
    }
 
    public void merge(Binary other) {
@@ -89,7 +88,8 @@ public class Binary {
       }
       
       this.heap = newHeap;
-      this.heap_size = i-1;       
+      this.heap_size = i-1;   
+      heapify(0);
    }
 
    public void heapify(int i) {
