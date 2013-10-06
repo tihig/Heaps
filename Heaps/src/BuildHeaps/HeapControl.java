@@ -136,38 +136,38 @@ public class HeapControl {
       while (x != null) {
          levels(x);
          x = x.getLeft();
+         System.out.println("");
          System.out.println("---");
       }
    }
 
    public void levels(Node h) {
       Node x = h;
-      nodes(null,x);
-      while(x != null){
+  
          Node[] childs = x.getChild();
-         if(childs != null){
-            nodes(childs,x);
-         }
+         nodes(childs, x);
          for (int i = 0; i < x.getC(); i++) {
             Node y = childs[i];
             Node[] yChilds = y.getChild();
-            if(yChilds != null){
-               nodes(yChilds,y);
+            if (yChilds != null) {
+               nodes(yChilds, y);
             }
-            
-         }
-         x = x.getLeft();
-         System.out.println("");
+
       }
    }
 
    public void nodes(Node[] nodes, Node p) {
       if (nodes == null) {
-         System.out.println(p.getKey());
+         System.out.print(p.getKey());
       } else {
+         System.out.print(p.getKey() + ": [");
          for (int i = 0; i < p.getC(); i++) {
-            System.out.print(nodes[i].getKey() + " ,");
+            System.out.print(nodes[i].getKey());
+            if(nodes[i+1] != null){
+               System.out.print(", ");
+            }
          }
+         System.out.print("] ");
       }
    }
 }
