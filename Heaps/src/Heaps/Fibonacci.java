@@ -106,6 +106,9 @@ public class Fibonacci {
       Node x = n;
       Node f = x;
 
+      if(n.getLeft() == null){
+         return;
+      }
       int min_index = x.getDegree();
       int min_val = x.getKey();
       while (x != null) {

@@ -13,22 +13,22 @@ public class Heaps {
 
       HeapControl hc = new HeapControl();
       Scanner reader = new Scanner(System.in);
-
-      Node n1 = new Node(null, 1, 2);
-      Node c = new Node(n1, 0, 4);
-//      c.setChild(new Node(c, 0, 7));
-//      c.setChild(new Node(c, 0, 9));
-//      c.setChild(new Node(c, 0, 10));
-      n1.setChild(c);
-      n1.setChild(new Node(n1, 0, 5));
-      Node left1 = new Node(null, 0, 8);
-      n1.setLeft(left1);
-      Node left2 = new Node(null, 1, 15);
-      left2.setChild(new Node(left2, 0, 23));
-      left1.setLeft(left2);
-      left1.setRight(n1);
-      left2.setRight(left1);
-      Fibonacci f1 = new Fibonacci(n1);
+//
+//      Node n1 = new Node(null, 1, 2);
+//      Node c = new Node(n1, 0, 4);
+////      c.setChild(new Node(c, 0, 7));
+////      c.setChild(new Node(c, 0, 9));
+////      c.setChild(new Node(c, 0, 10));
+//      n1.setChild(c);
+//      n1.setChild(new Node(n1, 0, 5));
+//      Node left1 = new Node(null, 0, 8);
+//      n1.setLeft(left1);
+//      Node left2 = new Node(null, 1, 15);
+//      left2.setChild(new Node(left2, 0, 23));
+//      left1.setLeft(left2);
+//      left1.setRight(n1);
+//      left2.setRight(left1);
+      Fibonacci f1 = new Fibonacci(hc.buildHeap(1));
 //      f1.extract_min();
 
 
@@ -47,7 +47,7 @@ public class Heaps {
             System.out.println("1. insert");
             System.out.println("2. delete min");
             System.out.println("3. decrease key");
-            System.out.println("4. lopeta");
+            System.out.println("muu numero: lopeta");
 
             int answer = Integer.parseInt(reader.nextLine());
             f1 = hc.getFh();
@@ -76,7 +76,7 @@ public class Heaps {
                     if(x.getKey() == key){
                         break;
                     }
-                    for (int i = 0; i <= x.getC(); i++) {
+                    for (int i = 0; i < x.getC(); i++) {
                         if(x.getChild()[i].getKey() == key){
                             x = x.getChild()[i];
                             break;
@@ -85,7 +85,7 @@ public class Heaps {
                     x = x.getLeft();
                 }
                 int bhkey = 0;
-                for (int i = 0; i < b1.getHeap_size(); i++) {
+                for (int i = 0; i <= b1.getHeap_size(); i++) {
                     if(b1.getHeap()[i] == key){
                       bhkey = i;
                       break;

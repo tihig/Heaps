@@ -15,7 +15,6 @@ public class HeapControl {
 
    public Node buildHeap(int k) {
       Node n = new Node(null, 0, k);
-      n.setLeft(new Node(null, 0, Integer.MAX_VALUE));
       return n;
    }
 
