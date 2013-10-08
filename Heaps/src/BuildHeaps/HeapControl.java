@@ -49,14 +49,14 @@ public class HeapControl {
       int j = 0;
       while (x != Integer.MAX_VALUE) {
          i--;
-         if (bh.left(h) < bh.getHeap_size() && heap[bh.left(h)] != Integer.MAX_VALUE) {
+         if (bh.left(h) < heap.length && heap[bh.left(h)] != Integer.MAX_VALUE) {
             System.out.print("_");
             j++;
          } else {
             System.out.print(" ");
          }
          System.out.print(x);
-         if (bh.right(h) < bh.getHeap_size() && heap[bh.right(h)] != Integer.MAX_VALUE) {
+         if (bh.right(h) < heap.length && heap[bh.right(h)] != Integer.MAX_VALUE) {
             System.out.print("_");
             j++;
          } else {
@@ -143,17 +143,18 @@ public class HeapControl {
 
    public void levels(Node h) {
       Node x = h;
-  
-         Node[] childs = x.getChild();
-         nodes(childs, x);
-         for (int i = 0; i < x.getC(); i++) {
-            Node y = childs[i];
-            Node[] yChilds = y.getChild();
-            if (yChilds != null) {
-               nodes(yChilds, y);
-            }
 
-      }
+      Node[] childs = x.getChild();
+      nodes(childs, x);
+//      for (int i = 0; i < x.getC(); i++) {
+//         Node y = childs[i];
+//         Node[] yChilds = y.getChild();
+//         if (yChilds != null) {
+//            nodes(yChilds, y);
+//         }
+//
+//      }
+
    }
 
    public void nodes(Node[] nodes, Node p) {
@@ -162,10 +163,15 @@ public class HeapControl {
       } else {
          System.out.print(p.getKey() + ": [");
          for (int i = 0; i < p.getC(); i++) {
-            System.out.print(nodes[i].getKey());
-            if(nodes[i+1] != null){
+            if (nodes[i].getChild() != null) {
+               nodes(nodes[i].getChild(), nodes[i]);
+            } else {
+               System.out.print(nodes[i].getKey());
+            }
+            if (nodes[i + 1] != null) {
                System.out.print(", ");
             }
+
          }
          System.out.print("] ");
       }

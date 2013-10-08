@@ -5,9 +5,14 @@ import BuildHeaps.Node;
 public class Fibonacci {
 
    private Node n;
+   private Node[] rank;
 
    public Fibonacci(Node n) {
       this.n = n;
+      this.rank = new Node[50];
+      for (int i = 0; i < 50; i++) {
+         rank[i] = null;
+      }
    }
 
    public Node getN() {
@@ -43,18 +48,18 @@ public class Fibonacci {
                right = x.getRight();
             }
 
-            
-            if(left!=null){
-               left.setRight(right);               
+
+            if (left != null) {
+               left.setRight(right);
             }
-            if(right!=null){
-             right.setLeft(left);
+            if (right != null) {
+               right.setLeft(left);
             }
             n.setRight(x);
             x.setLeft(n);
             x.setRight(null);
             n = n.getRight();
-            
+
          }
 
       }
@@ -78,6 +83,7 @@ public class Fibonacci {
          return;
       }
       if (getMin() > k.getKey()) {
+         k.setRight(null);
          k.setLeft(n);
          n.setRight(k);
          n = k;
@@ -89,51 +95,57 @@ public class Fibonacci {
          n.setLeft(k);
          k.setRight(n);
       }
-     consolidate();
+      if (rank[k.getDegree()] != null) {
+         consolidate();
+      } else {
+         rank[k.getDegree()] = k;
+      }
    }
 
    public void consolidate() {
-//      Node A[] = new Node[256];
-//      Node x = n;
-//      int val = 0;
-////      while (x != null) {
-////         int degree = x.getDegree();
-////         while (A[degree] != null) {
-////            Node y = A[degree];
-////            if (x.getKey() > y.getKey()) {
-////               int keyX = x.getKey();
-////               x.setKey(y.getKey());
-////               y.setKey(keyX);
-////            }
-////            link(y, x);
-////            A[degree] = null;
-////            degree = degree + 1;
-////
-////         }
-////
-////         A[degree] = x;
-////         val = degree;
-////         x = x.getLeft();
-////      }
-//      int i = val;
-//      while (A[i] != null) {
-//         if (i == 0) {
-//            n = A[i];
-//            
-//         } else if (A[i].getKey() < n.getKey()) {
-//            n.setRight(A[i]);
-//            n.setLeft(A[i].getLeft());
-//            A[i].setLeft(n);
-//            A[i].setRight(null);
-//            n = A[i];
-//         } else {
-//         
-//            A[i].setRight(n);
-//
-//         }
-//         i++;
-//      }
-//      
+      Node x = n;
+      Node f = x;
+
+      int min_index = x.getDegree();
+      int min_val = x.getKey();
+      while (x != null) {
+         if (x.getKey() <= min_val) {
+            min_index = x.getDegree();
+            min_val = x.getKey();
+         }
+         if (rank[x.getDegree()] == null) {
+            rank[x.getDegree()] = x;
+            x = x.getLeft();
+         } else {
+            int xdegree = x.getDegree();
+            Node y = rank[xdegree];
+            rank[xdegree] = null;
+            if (x.getKey() < y.getKey()) {
+               link(y, x);
+            } else {
+               link(x, y);
+               x = y;
+            }
+         }
+      }
+      if (min_index != f.getDegree()) {
+         Node min = rank[min_index];
+
+         if (min.getLeft() != null) {
+            min.getLeft().setRight(min.getRight());
+         }
+         if (min.getRight() != null) {
+            min.getRight().setLeft(min.getLeft());
+         }
+
+         min.setLeft(null);
+         min.setLeft(f);
+         f.setRight(min);
+
+         n = min;
+      } else {
+         n = rank[min_index];
+      }
    }
 
    public void cut(Node x, Node parent) {
@@ -188,11 +200,11 @@ public class Fibonacci {
                   child.setLeft(z.getLeft());
                   z.setLeft(child);
                   child.setP(null);
-                  
+
                }
             }
          }
-            
+
          if (z.getLeft() == null && z.getRight() == null) {
             this.n = null;
          } else {
@@ -200,7 +212,7 @@ public class Fibonacci {
             n.setRight(null);
             consolidate();
          }
-   
+
       }
       return n;
    }

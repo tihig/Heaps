@@ -46,7 +46,7 @@ public class Binary {
          return;
       }
       checkCapasity(heap,heap_size);
-      heap[0] = heap[heap_size];
+      heap[0] = Integer.MAX_VALUE;
       heapify(0);
       heap_size -= 1;
    }
@@ -115,6 +115,12 @@ public class Binary {
          int s = heap[i];
          heap[i] = heap[l];
          heap[l] = s;
+      }
+      // r > heap_size eli ei ole olemassa
+      else{
+         min = l;
+         heap[0] = heap[min];
+         heap[min] = Integer.MAX_VALUE;
       }
 
    }
