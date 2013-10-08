@@ -117,7 +117,7 @@ public class Binary {
          heap[l] = s;
       }
       // r > heap_size eli ei ole olemassa
-      else{
+      else if(r > heap_size && r < heap.length){
          min = l;
          heap[0] = heap[min];
          heap[min] = Integer.MAX_VALUE;
