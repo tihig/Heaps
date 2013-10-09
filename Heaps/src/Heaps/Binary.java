@@ -116,11 +116,12 @@ public class Binary {
          heap[i] = heap[l];
          heap[l] = s;
       }
-      // r > heap_size eli ei ole olemassa
-      else if(r > heap_size && r < heap.length){
-         min = l;
-         heap[0] = heap[min];
-         heap[min] = Integer.MAX_VALUE;
+    
+      else if(i+1 < heap.length && heap[i+1] < heap[i]){
+            int s = heap[i+1];
+            heap[i+1] = heap[i];
+            heap[i] = s;
+            heapify(i+1);
       }
 
    }

@@ -61,6 +61,10 @@ public class Node {
         return mark;
     }
 
+    public void setChildList(Node[] child) {
+        this.child = child;
+    }
+
     public int getDegree() {
         return degree;
     }

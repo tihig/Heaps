@@ -56,7 +56,7 @@ public class HeapControl {
          }
          System.out.print(x);
          if (bh.right(h) < heap.length && heap[bh.right(h)] != Integer.MAX_VALUE) {
-            System.out.print("_");
+            System.out.print("_ ");
             j++;
          } else {
             System.out.print(" ");
@@ -145,15 +145,6 @@ public class HeapControl {
 
       Node[] childs = x.getChild();
       nodes(childs, x);
-//      for (int i = 0; i < x.getC(); i++) {
-//         Node y = childs[i];
-//         Node[] yChilds = y.getChild();
-//         if (yChilds != null) {
-//            nodes(yChilds, y);
-//         }
-//
-//      }
-
    }
 
    public void nodes(Node[] nodes, Node p) {
