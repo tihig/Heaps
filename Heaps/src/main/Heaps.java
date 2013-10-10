@@ -28,7 +28,7 @@ public class Heaps {
 
         Fibonacci f1 = new Fibonacci(n1);
 
-        Binary b1 = new Binary(new int[]{2, 4, 5, 7, 9, Integer.MAX_VALUE}, 4);
+        Binary b1 = new Binary(new int[]{2, 4, 5, 8, 15, Integer.MAX_VALUE}, 4);
         hc.setFh(f1);
         hc.setBh(b1);
 

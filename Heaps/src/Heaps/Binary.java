@@ -39,6 +39,11 @@ public class Binary {
             i = j;
          }
       }
+      if(i > 0 && newk < heap[0]){
+         int s = heap[0];
+         heap[0] = newk;
+         heap[i] = s;
+      }
    }
 
    public void del_min() {
