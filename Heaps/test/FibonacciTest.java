@@ -96,13 +96,11 @@ public class FibonacciTest {
    public void consolidateTest() {
       Node nc = new Node(null, 0, 1);
 
-      Node left1 = new Node(null,0,3);
-      left1.setRight(nc);
-      nc.setLeft(left1);
-      Node left2 = new Node(null,1,8);
-      left2.setChild(new Node(left2,0,9));
-      left2.setRight(left1);
-      left1.setLeft(left2);
+      Node x = nc;
+      for (int i = 0; i < 4; i++) {
+         x.setLeft(new Node(null, 0, 1 + 2));
+         x = x.getLeft();
+      }
       Fibonacci fc = new Fibonacci(nc);
       fc.consolidate();
 

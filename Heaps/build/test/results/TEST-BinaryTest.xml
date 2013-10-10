@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="dhp-16" name="BinaryTest" tests="7" time="0.16" timestamp="2013-10-09T11:31:55">
+<testsuite errors="0" failures="0" hostname="dhp-16" name="BinaryTest" tests="7" time="0.169" timestamp="2013-10-04T13:36:49">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="GB" />
@@ -63,7 +63,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner BinaryTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/cs/fs/home/vnissila/NetBeansProjects/Heaps/build/test/results/TEST-BinaryTest.xml crashfile=/cs/fs/home/vnissila/NetBeansProjects/Heaps/build/junitvmwatcher2270025558787527279.properties propsfile=/cs/fs/home/vnissila/NetBeansProjects/Heaps/build/junit2978294868278869506.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner BinaryTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/cs/fs/home/vnissila/NetBeansProjects/Heaps/build/test/results/TEST-BinaryTest.xml crashfile=/cs/fs/home/vnissila/NetBeansProjects/Heaps/build/junitvmwatcher4516340170783116820.properties propsfile=/cs/fs/home/vnissila/NetBeansProjects/Heaps/build/junit3493525884434725217.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -436,13 +436,13 @@
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="/usr/share/netbeans/7.3.1/enterprise/docs/javaee-doc-api.jar" />
   </properties>
-  <testcase classname="BinaryTest" name="decrease_key_Test" time="0.002" />
-  <testcase classname="BinaryTest" name="capasityTest" time="0.0" />
-  <testcase classname="BinaryTest" name="insertTest" time="0.0" />
-  <testcase classname="BinaryTest" name="mergeTest" time="0.001" />
+  <testcase classname="BinaryTest" name="getMinTest" time="0.001" />
   <testcase classname="BinaryTest" name="HeapifyTest" time="0.0" />
-  <testcase classname="BinaryTest" name="getMinTest" time="0.0" />
-  <testcase classname="BinaryTest" name="del_min_Test" time="0.001" />
+  <testcase classname="BinaryTest" name="del_min_Test" time="0.0" />
+  <testcase classname="BinaryTest" name="decrease_key_Test" time="0.0" />
+  <testcase classname="BinaryTest" name="capasityTest" time="0.0" />
+  <testcase classname="BinaryTest" name="insertTest" time="0.001" />
+  <testcase classname="BinaryTest" name="mergeTest" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

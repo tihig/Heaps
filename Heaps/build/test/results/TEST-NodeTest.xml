@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="dhp-16" name="NodeTest" tests="4" time="0.094" timestamp="2013-10-09T11:31:58">
+<testsuite errors="0" failures="0" hostname="dhp-16" name="NodeTest" tests="4" time="0.108" timestamp="2013-10-04T13:36:51">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="GB" />
@@ -63,7 +63,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner NodeTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/cs/fs/home/vnissila/NetBeansProjects/Heaps/build/test/results/TEST-NodeTest.xml crashfile=/cs/fs/home/vnissila/NetBeansProjects/Heaps/build/junitvmwatcher513451974520725667.properties propsfile=/cs/fs/home/vnissila/NetBeansProjects/Heaps/build/junit5815420104034045106.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner NodeTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/cs/fs/home/vnissila/NetBeansProjects/Heaps/build/test/results/TEST-NodeTest.xml crashfile=/cs/fs/home/vnissila/NetBeansProjects/Heaps/build/junitvmwatcher6710294168711029445.properties propsfile=/cs/fs/home/vnissila/NetBeansProjects/Heaps/build/junit2165582167151254283.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -436,9 +436,9 @@
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="/usr/share/netbeans/7.3.1/enterprise/docs/javaee-doc-api.jar" />
   </properties>
-  <testcase classname="NodeTest" name="getChildLeft" time="0.002" />
+  <testcase classname="NodeTest" name="getChildLeft" time="0.001" />
   <testcase classname="NodeTest" name="nodeKeyTest" time="0.0" />
-  <testcase classname="NodeTest" name="getChildRight" time="0.0" />
+  <testcase classname="NodeTest" name="getChildRight" time="0.001" />
   <testcase classname="NodeTest" name="setChild" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
