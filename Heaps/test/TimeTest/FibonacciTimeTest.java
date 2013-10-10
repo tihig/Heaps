@@ -34,7 +34,7 @@ public class FibonacciTimeTest {
         n1.setChild(new Node(n1, 1, 4));
         n1.setChild(new Node(n1, 1, 5));
         this.f1 = new Fibonacci(n1);
-        this.n2 = help.buildTestHeap();
+        this.n2 = help.buildConsolidateHeap();
         this.f2 = new Fibonacci(n2);
     }
 
@@ -54,8 +54,8 @@ public class FibonacciTimeTest {
     @Test
     public void del_minTime() {
         long first = System.currentTimeMillis();
-        for (int i = 0; i < 11; i++) {
-            f2.delete(n2);
+        for (int i = 0; i < 40; i++) {
+            f2.extract_min();
         }
 
         long second = System.currentTimeMillis();
@@ -66,10 +66,14 @@ public class FibonacciTimeTest {
 
     @Test
     public void insertTime() {
+        Node[] ins = new Node[100000];
+        for (int i = 0; i < ins.length; i++) {
+            Node x = new Node(null, 0, i + 3);
+            ins[i] = x;
+        }
         long first = System.currentTimeMillis();
-        for (int i = 0; i < 100; i++) {
-            Node x = new Node(null, 0, i+3);
-            f1.insert(x);
+        for (int i = 0; i < 100000; i++) {
+            f1.insert(ins[i]);
         }
         long sec = System.currentTimeMillis();
         long sum = sec - first;
@@ -82,7 +86,7 @@ public class FibonacciTimeTest {
     public void decrease_keyTime() {
         long first = System.currentTimeMillis();
         Node x = n2;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 40; i++) {
             x = x.getLeft();
             f2.decrease_key(x, i - 2);
         }
@@ -96,9 +100,13 @@ public class FibonacciTimeTest {
     @Test
     public void consolidateTime() {
         Node n = help.buildConsolidateHeap();
+        Node x = help.buildConsolidateHeap();
         long first = System.currentTimeMillis();
-        Fibonacci fc = new Fibonacci(n);
+        Fibonacci fc = new Fibonacci(x);
+
         fc.consolidate();
+
+
         long sec = System.currentTimeMillis();
         long sum = sec - first;
 
@@ -108,8 +116,29 @@ public class FibonacciTimeTest {
 
     @Test
     public void fibonacciTime() {
+        Node n = help.buildConsolidateHeap();
         long first = System.currentTimeMillis();
+        for (int i = 0; i < 1000; i++) {
+            f1.getN();
+        }
 
+        for (int i = 0; i < 40; i++) {
+            f2.extract_min();
+        }
+
+        for (int i = 0; i < 40; i++) {
+            Node x = new Node(null, 0, i + 3);
+            f1.insert(x);
+        }
+
+        Node x = n2;
+        for (int i = 0; i < 20; i++) {
+            x = x.getLeft();
+            f2.decrease_key(x, i - 2);
+        }
+
+        Fibonacci fc = new Fibonacci(n);
+        fc.consolidate();
         long sec = System.currentTimeMillis();
         long sum = sec - first;
 

@@ -18,6 +18,14 @@ public class Binary {
         return heap_size;
     }
 
+    public void setHeap(int[] heap) {
+        this.heap = heap;
+    }
+
+    public void setHeap_size(int heap_size) {
+        this.heap_size = heap_size;
+    }
+
    public int getMin() {
       return heap[0];
    }
@@ -39,6 +47,11 @@ public class Binary {
             i = j;
          }
       }
+      if(i > 0 && newk < heap[0]){
+         int s = heap[0];
+         heap[0] = newk;
+         heap[i] = s;
+      }
    }
 
    public void del_min() {
@@ -46,7 +59,7 @@ public class Binary {
          return;
       }
       checkCapasity(heap,heap_size);
-      heap[0] = heap[heap_size];
+      heap[0] = Integer.MAX_VALUE;
       heapify(0);
       heap_size -= 1;
    }
@@ -96,8 +109,8 @@ public class Binary {
       if(i < 0){
          return;
       }
-      int l = left(i);
-      int r = right(i);
+      int l = i+1;
+      int r = i+2;
       int min = 0;
       if (r <= heap_size) {
          if (heap[l] < heap[r]) {
@@ -115,6 +128,13 @@ public class Binary {
          int s = heap[i];
          heap[i] = heap[l];
          heap[l] = s;
+      }
+    
+      else if(i+1 < heap.length && heap[i+1] < heap[i]){
+            int s = heap[i+1];
+            heap[i+1] = heap[i];
+            heap[i] = s;
+            heapify(i+1);
       }
 
    }
