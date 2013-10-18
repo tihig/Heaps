@@ -38,7 +38,7 @@ public class HeapControl {
       if (bh == null) {
          return;
       }
-      bh.checkCapasity(bh.getHeap(), bh.getHeap_size());
+      bh.moreLength();
       int[] heap = bh.getHeap();
       int h = 0;
       int x = heap[0];
