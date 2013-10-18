@@ -100,38 +100,6 @@ public class Binary implements ListOperator {
         }
     }
 
-//      public void merge(Binary other) {
-//         
-//      int[] newHeap = initializeHeap(new int[this.heap.length]);
-//      Binary new_bin = new Binary(newHeap,-1);
-//      int[] otherHeap =  other.getHeap();
-//     
-//      int i = 0;
-//      int j = 0;
-//      int k = 0;
-//      while(heap[k] != Integer.MAX_VALUE || otherHeap[j] != Integer.MAX_VALUE){
-//         new_bin.moreLength();
-//         if(heap[k] == otherHeap[j]){
-//            newHeap[i] = heap[k];
-//            k++;
-//            j++;
-//         }
-//         else if( otherHeap[j] < heap[k]){
-//             newHeap[i] = otherHeap[j] ;
-//             j++;
-//         } 
-//         else{
-//            newHeap[i] = heap[k];
-//            k++; 
-//         }
-//         i++;
-//      }
-//      
-//      this.heap = newHeap;
-//      this.heap_size = i-1;   
-//      heapify(0);
-//   }
-
     public void merge(Binary b) {
         int[] b_heap = b.getHeap();
         int b_heap_size = b.getHeap_size();

@@ -85,7 +85,7 @@ public class Heaps {
                     }
                 }
                 f1.decrease_key(x, newk);
-                b1.decrease_key(bhkey, newk);
+                b1.dec_key(bhkey, newk);
             } else {
                 System.out.println("END!");
                 break;
