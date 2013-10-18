@@ -12,7 +12,6 @@ public class BinaryTimeTest {
 
    private int[] heap = {1, 2, 3, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
    private Binary bin;
-   private Binary hf;
    private Binary b;
 
    public BinaryTimeTest() {
@@ -20,14 +19,14 @@ public class BinaryTimeTest {
 
    @BeforeClass
    public static void setUpClass() {
-      System.out.println("Binary times: ");
+      System.out.println("");
+      System.out.println("///Binary times: ");
+      System.out.println("");
    }
 
    @Before
    public void setUp() {
       this.bin = new Binary(heap, 2);
-      int[] h = {8, 9, 1, 7, 2, 5, 6, 16, 4, 10, 3};
-      this.hf = new Binary(h, 10);
       int[] minHeap = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
       this.b = new Binary(minHeap, 10);
    }

@@ -1,124 +1,133 @@
 package BuildHeaps;
 
-public class Node {
+public class Node implements ListOperator {
 
-    Node left;
-    Node right;
-    Node p;
-    Node[] child = null;
-    int c;
-    int degree;
-    int k;
-    int place;
-    boolean mark;
+    private int key;
+    private Node left;
+    private Node right;
+    private Node parent;
+    private Node[] child_list;
+    private int child_length;
+    private int degree;
+    private int place;
+    private boolean mark;
 
-    /**
-     *
-     * @param p // parent for Node
-     * @param degree
-     * @param k // key of Node
-     */
-    public Node(Node p, int degree, int k) {
+    public Node(int val) {
+        this.key = val;
         this.left = null;
         this.right = null;
-        this.p = p;
-        this.c = 0;
-        this.k = k;
-        this.degree = degree;
-        this.mark = false;
+        this.parent = null;
+        this.child_length = -1;
+        this.child_list = new Node[1];
+        this.degree = 0;
         this.place = -1;
+        this.mark = false;
     }
 
-    public int getKey() {
-        return k;
-    }
+   public boolean isMark() {
+      return mark;
+   }
 
-    public int getPlace() {
-        return place;
-    }
-
-    public void setPlace(int place) {
-        this.place = place;
-    }
-
-    public Node getLeft() {
-        return left;
-    }
-
-    public Node getRight() {
-        return right;
-    }
-
-    public Node getP() {
-        return p;
-    }
-
-    public Node[] getChild() {
-        return child;
-    }
-
-    public boolean isMark() {
-        return mark;
-    }
-
-    public void setChildList(Node[] child) {
-        this.child = child;
-    }
+   public void setMark(boolean mark) {
+      this.mark = mark;
+   }
 
     public int getDegree() {
         return degree;
-    }
-
-    public void setMark(boolean mark) {
-        this.mark = mark;
-    }
-
-    public int getC() {
-        return c;
-    }
-
-    public void setC(int c) {
-        this.c = c;
-    }
-
-    public void setKey(int k) {
-        this.k = k;
     }
 
     public void setDegree(int degree) {
         this.degree = degree;
     }
 
+    public Node[] getChild_list() {
+        return child_list;
+    }
+
+    public void setChild_list(Node[] child_list) {
+        this.child_list = child_list;
+    }
+
+    public int getChild_length() {
+        return child_length;
+    }
+
+    public void setChild_length(int child_length) {
+        this.child_length = child_length;
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
+    }
+
+    public Node getLeft() {
+        return left;
+    }
+
     public void setLeft(Node left) {
         this.left = left;
+    }
+
+    public Node getRight() {
+        return right;
     }
 
     public void setRight(Node right) {
         this.right = right;
     }
 
-    public void setP(Node p) {
-        this.p = p;
+    public Node getParent() {
+        return parent;
     }
 
-    public void setChild(Node child) {
-        if (this.child == null) {
-            this.child = new Node[50];
-        }
-        this.child[c] = child;
-        child.setPlace(c);
-        c++;
+    public void setParent(Node parent) {
+        this.parent = parent;
     }
 
-    public void moveChild() {
-        for (int i = 0; i <= c; i++) {
-            if (child[i] == null) {
-                child[i] = child[i + 1];
-                child[i + 1] = null;
-            }
+   public int getPlace() {
+      return place;
+   }
+
+   public void setPlace(int place) {
+      this.place = place;
+   }
+
+    public Node[] getChild_List() {
+        return child_list;
+    }
+
+    public void setChild_List(Node[] childs) {
+        this.child_list = childs;
+    }
+
+    public void setChild(Node c) {
+        this.setChild_length(child_length + 1);
+        if (child_length >= child_list.length) {
+            moreLength();
         }
-        if (c >= 0) {
-            c--;
+        this.child_list[child_length] = c;
+        c.setPlace(child_length);
+    }
+
+    public Node getChild(int i) {
+        if (i >= this.child_list.length || i < 0) {
+            return null;
         }
+        return this.child_list[i];
+    }
+
+    @Override
+    public void moreLength() {
+        int new_size = child_list.length + (child_list.length / 2);
+        if(new_size == 1){
+           new_size = 2;
+        }
+        Node[] new_list = new Node[new_size];
+        System.arraycopy(child_list, 0, new_list, 0, child_list.length);
+        child_list = new_list;
     }
 }
